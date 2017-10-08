@@ -5,7 +5,7 @@ const INTENSITY = 10
 
 const errorColor = [255, 0, 0]
 const listenColor = [0, 255, 0]
-const unknownColor = [255, 0, 255]
+const unknownColor = [255, 255, 0]
 const idleColor = [0, 0, 0]
 const LedDriver = new Apa102spi(9, 100)
 let idleTimer
@@ -57,6 +57,7 @@ lisa.on('bot-result', result => {
     setIdleMode()
   }
 })
+setIdleMode()
 
 //lisa.trigger(1)
 function exitHandler(exit) {
