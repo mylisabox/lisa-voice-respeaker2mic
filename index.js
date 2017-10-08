@@ -27,7 +27,6 @@ const setColorMode = (color, needToRestoreIdle) => {
   }
 }
 
-
 const lisa = new LISA({
   url: 'http://mylisabox:3000',
   speaker: null,
@@ -43,7 +42,12 @@ lisa.on('error', error => {
   console.error(error)
   setColorMode(errorColor, true)
 })
-lisa.on('final-result', sentence => console.log(sentence + ' detected'))
+lisa.on('final-result', sentence => {
+  console.log(sentence + ' detected')
+  if (sentence === '') {
+    setIdleMode()
+  }
+})
 lisa.on('bot-result', result => {
   console.log('bot-result', result)
   if (result.action === 'UNKNOWN') {
