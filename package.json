@@ -1,6 +1,6 @@
 {
   "name": "lisa-voice-respeaker2mic",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "L.I.S.A. standalone module for pi zero and respeaker 2 mic PI HAT",
   "main": "index.js",
   "repository": "https://github.com/jaumard/lisa-voice-respeaker2mic",
@@ -8,6 +8,6 @@
   "license": "MIT",
   "dependencies": {
     "apa102-spi": "^0.0.3",
-    "lisa-standalone-voice-command": "^0.0.13"
+    "lisa-standalone-voice-command": "^0.0.15"
   }
 }
