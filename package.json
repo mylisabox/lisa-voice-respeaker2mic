@@ -8,6 +8,6 @@
   "license": "MIT",
   "dependencies": {
     "apa102-spi": "^0.0.3",
-    "lisa-standalone-voice-command": "^0.0.17"
+    "lisa-standalone-voice-command": "^0.0.18"
   }
 }
