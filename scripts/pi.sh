@@ -18,10 +18,15 @@ if which yarn > /dev/null ; then
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
     apt-get update && apt-get install -y yarn
+else
+    echo "yarn is installed, skipping..."
 fi
 
 #sox install for sonus speech recognition
-apt-get install -y sox libsox-fmt-all alsa-utils libatlas-base-dev libatlas3gf-base
+apt-get install -y sox libsox-fmt-all alsa-utils libatlas-base-dev
+
+# others
+apt-get install -y libzmq3-dev libavahi-compat-libdnssd-dev
 
 #respeaker
 git clone https://github.com/respeaker/seeed-voicecard.git
@@ -40,7 +45,7 @@ cd lisa-voice-respeaker2mic
 yarn
 
 cd /etc/init.d/
-wget https://github.com/jaumard/lisa-voice-respeaker2mic/blob/master/scripts/lisa
+wget https://raw.githubusercontent.com/jaumard/lisa-voice-respeaker2mic/master/scripts/lisa
 chmod 755 /etc/init.d/lisa
 update-rc.d lisa defaults
 
