@@ -7,8 +7,9 @@ apt-get install -y build-essential
 
 #install node
 if which node > /dev/null ; then
-    curl -sL https://deb.nodesource.com/setup_8.x | bash -
-    apt-get install -y nodejs
+    wget -O - https://raw.githubusercontent.com/sdesalas/node-pi-zero/master/install-node-v6.11.3.sh | bash
+    #curl -sL https://deb.nodesource.com/setup_8.x | bash -
+    #apt-get install -y nodejs
 else
     echo "node is installed, skipping..."
 fi
@@ -43,10 +44,11 @@ git clone https://github.com/jaumard/lisa-voice-respeaker2mic
 
 cd lisa-voice-respeaker2mic
 yarn
+yarn global add forever
 
 cd /etc/init.d/
 wget https://raw.githubusercontent.com/jaumard/lisa-voice-respeaker2mic/master/scripts/lisa
 chmod 755 /etc/init.d/lisa
 update-rc.d lisa defaults
 
-#reboot
+echo "now reboot your system to make minilisa working"
