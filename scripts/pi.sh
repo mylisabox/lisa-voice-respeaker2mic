@@ -22,14 +22,10 @@ fi
 #sox install for sonus speech recognition
 apt-get install -y sox libsox-fmt-all alsa-utils libatlas-base-dev libatlas3gf-base
 
-#matrix board
-echo "deb http://packages.matrix.one/matrix-creator/ ./" | sudo tee --append /etc/apt/sources.list
-apt-get update
-apt-get upgrade
-apt-get install -y libzmq3-dev matrix-creator-init matrix-creator-malos
-echo 'export AUDIODEV=mic_channel8' >>~/.bash_profile
-echo 'export LANG=en-US' >>~/.bash_profile
-source ~/.bash_profile
+#respeaker
+git clone https://github.com/respeaker/seeed-voicecard.git
+cd seeed-voicecard
+./install.sh 2mic
 
 if [ ! -d "/var/www" ]; then
   mkdir /var/www
@@ -41,3 +37,10 @@ git clone https://github.com/jaumard/lisa-voice-respeaker2mic
 
 cd lisa-voice-respeaker2mic
 yarn
+
+cd /etc/init.d/
+wget https://github.com/jaumard/lisa-voice-respeaker2mic/blob/master/scripts/lisa
+chmod 755 /etc/init.d/lisa
+update-rc.d lisa defaults
+
+#reboot
