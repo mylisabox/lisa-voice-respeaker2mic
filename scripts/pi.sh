@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 apt-get update
-apt-get upgrade
+apt-get -y upgrade
 apt-get install -y curl git
 apt-get install -y build-essential
 
