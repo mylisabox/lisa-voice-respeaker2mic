@@ -7,12 +7,7 @@ apt-get install -y build-essential
 
 #install node
 if which node > /dev/null ; then
-    wget https://nodejs.org/dist/latest-v10.x/node-v10.19.0-linux-armv6l.tar.gz
-    tar -xvf node-v10.19.0-linux-armv6l.tar.gz
-    cd node-v10.19.0-linux-armv6l
-    cp -R * /usr/local/
-    cd ..
-    rm -R node-v10.19.0-linux-armv6l
+    wget -O - https://raw.githubusercontent.com/sdesalas/node-pi-zero/master/install-node-v10.15.0.sh | bash
 else
     echo "node is installed, skipping..."
 fi
