@@ -7,7 +7,7 @@
   "author": "jaumard <jimmy.aumard@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "apa102-spi": "^0.0.3",
-    "lisa-standalone-voice-command": "^0.0.20"
+    "apa102-spi": "^0.0.6",
+    "lisa-standalone-voice-command": "^1.0.3"
   }
 }
