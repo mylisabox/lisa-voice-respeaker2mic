@@ -7,9 +7,12 @@ apt-get install -y build-essential
 
 #install node
 if which node > /dev/null ; then
-    wget -O - https://raw.githubusercontent.com/sdesalas/node-pi-zero/master/install-node-v6.11.3.sh | bash
-    #curl -sL https://deb.nodesource.com/setup_8.x | bash -
-    #apt-get install -y nodejs
+    wget https://nodejs.org/dist/latest-v10.x/node-v10.19.0-linux-armv6l.tar.gz
+    tar -xvf node-v10.19.0-linux-armv6l.tar.gz
+    cd node-v10.19.0-linux-armv6l
+    cp -R * /usr/local/
+    cd ..
+    rm -R node-v10.19.0-linux-armv6l
 else
     echo "node is installed, skipping..."
 fi
@@ -32,7 +35,7 @@ apt-get install -y libzmq3-dev libavahi-compat-libdnssd-dev
 #respeaker
 git clone https://github.com/respeaker/seeed-voicecard.git
 cd seeed-voicecard
-./install.sh 2mic
+./install.sh
 
 if [ ! -d "/var/www" ]; then
   mkdir /var/www
